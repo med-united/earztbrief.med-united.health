@@ -6,6 +6,18 @@
             xmlns:tnt="sap.tnt" 
             xmlns="sap.m">
     <App id="app">
-        <Page title="Create Enterprise-ready Web Apps with Ease"></Page>
+        <Page title="Create Enterprise-ready Web Apps with Ease">
+            <Label text="Given Name" />
+            <Input value="{/recordTarget/patientRole/patient/name/given}"/>
+            <!-- Add all the other fields -->
+            <footer>
+                <Toolbar>
+                    <ToolbarSpacer />
+
+                    <ToolbarSpacer />
+                    <Button type="Accept" text="Send" press=".onClick" />
+                </Toolbar>
+            </footer>
+        </Page>
     </App>
 </mvc:View>

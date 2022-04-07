@@ -5,8 +5,17 @@ sap.ui.define(
         return Controller.extend("medunited.view.earztbrief", {
             onInit: function () {
                 this.getView().setModel(
-                    new XMLModel()
+                    new XMLModel("./template/Arztbrief-02-Level3.XML")
                 );
+            },
+            onClick: function() {
+                const oXmlDoc = this.getView().getModel().getData();
+                const sXml = new XMLSerializer().serializeToString(oXmlDoc.documentElement);
+                console.log(sXml);
+
+                // TODO: Send email via EmailJS
+
+                // TODO: Add PDF/A document
             }
         });
     }
