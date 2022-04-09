@@ -7,7 +7,7 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="text/javascript">
         window.addEventListener("load", function () {
-            emailjs.init('Ws9Lwn9-JBNLZErpZ');
+            // emailjs.init('Ws9Lwn9-JBNLZErpZ');
 
             document.getElementById('form-contact')
                 .addEventListener('submit', function (event) {
@@ -15,12 +15,23 @@
 
                     const btn = document.getElementById('button-send');
                     const btnText = btn.textContent;
-                    btn.textContent = 'Sending...';
+                    btn.textContent = btn.dataset.sendingtext;
 
+                    const userId = 'Ws9Lwn9-JBNLZErpZ';
                     const serviceID = 'service_ejor9ri';
                     const templateID = 'template_earztbrief';
-                    emailjs.sendForm(serviceID, templateID, this)
-                        .then(() => {
+                    const messageXml = "<ClinicalDocument>Falsches Üben von Xylophonmusik quält jeden größeren Zwerg</ClinicalDocument>";
+                    const attachmentFile = new File([messageXml], "message.xml", {type: "text/xml",} );
+                    const formData = new FormData(event.target);
+                    const templateParams = {};
+                    for(let pair of formData.entries()) {
+                      templateParams[pair[0]] = pair[1];
+                    }
+                    templateParams['attachment'] = attachmentFile;
+                    templateParams['attachment'] = 'data:text/xml;base64,'+btoa(unescape(encodeURIComponent(messageXml)));
+                    // emailjs.send(serviceID, templateID, templateParams, userId)
+                    emailjs.sendForm(serviceID, templateID, this, userId)
+                    .then(() => {
                             btn.textContent = btnText;
                             alert('Sent message!');
                         }, (err) => {
@@ -39,10 +50,11 @@
         <h3>Send a message to your doctor</h3>
         <!-- CONTACT FORM -->
         <form id="form-contact" class="text-center col-10 offset-1 col-sm-8 offset-sm-2 col-md-6 offset-md-3" action="">
-          <input id="contactname"  type="text"   name="contactname"  placeholder="Name"  required><br>
-          <input id="contactemail" type="email"  name="contactemail" placeholder="Email" required><br>
-          <textarea id="contactmessage" rows="5" name="contactmessage" placeholder="Message" required></textarea><br>
-          <button id="button-send" type="submit">Send Message</button>
+          <input    id="contactname"   type="text"  name="contactname"    placeholder="Name"    required><br>
+          <input    id="contactemail"  type="email" name="contactemail"   placeholder="Email"   required><br>
+          <textarea id="contactmessage" rows="5"    name="contactmessage" placeholder="Message" required></textarea><br>
+          <input    id="attachment"    type="file"  name="attachment"><br>
+          <button   id="button-send"   type="submit" data-sendingtext="Sending...">Send Message</button>
         </form>
  
     </main>
