@@ -17,6 +17,7 @@
                 </name>
                 <birthTime value="19410912" />
             </patient>
+            <telecom value="mailto:felicitas@email.net"/>
         </patientRole>
     </recordTarget>
     <author>
@@ -36,7 +37,7 @@
     <component>
         <structuredBody>
             <component>
-                <section></section>
+                <section>Falsches Üben von Xylophonmusik quält jeden größeren Zwerg</section>
             </component>
         </structuredBody>
     </component>

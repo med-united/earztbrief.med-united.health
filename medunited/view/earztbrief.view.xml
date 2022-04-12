@@ -9,13 +9,17 @@
                 <Label text="Versichertennummer" />
                 <Input value="{/recordTarget/patientRole/id/@extension}" />
                 <Label text="Geburtsdatum" />
-                <Input value="{/recordTarget/patientRole/patient/birthTime}" />
+                <DatePicker value="{/recordTarget/patientRole/patient/birthTime/@value}" />
+                <Label text="Email" />
+                <Input value="{/recordTarget/patientRole/telecom/@value}" />
                 <Label text="Zeitpunkt der Dokumentation" />
-                <Input value="{/author/time}" />
+                <DateTimePicker value="{/author/time/@value}" />
                 <Label text="Autor Id" />
                 <Input value="{/author/assignedAuthor/id/@extension}" />
                 <Label text="Organisation Id" />
                 <Input value="{/custodian/assignedCustodian/representedCustodianOrganization/id/@extension}" />
+                <Label text="Nachricht" />
+                <Input value="{/component/structuredBody/component/section}" />
             </l:VerticalLayout>
             <footer>
                 <Toolbar>
