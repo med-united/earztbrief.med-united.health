@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="vhitg-cda-v3.xsl"?>
-<ClinicalDocument xmlns="urn:hl7-org:v3"
-                  xmlns:sciphox="urn::sciphox-org/sciphox"
-                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                  xsi:schemaLocation="urn:hl7-org:v3 d:/archiv/xml/schemas/20040420/CDA.xsd"
-        >
-    <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
-    <id extension="60878,34593" root="1.2.276.0.58"/>
-    <code code="11488-4" codeSystem="2.16.840.1.113883.6.1" displayName="Consultation note"/>
+<ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:sciphox="urn::sciphox-org/sciphox" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hl7-org:v3 d:/archiv/xml/schemas/20040420/CDA.xsd">
+    <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040" />
+    <id extension="60878,34593" root="1.2.276.0.58" />
+    <code code="11488-4" codeSystem="2.16.840.1.113883.6.1" displayName="Consultation note" />
     <title>Klinisches Dokument</title>
-    <effectiveTime value="20070905"/>
-    <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"/>
-    <languageCode code="de"/>
-    <setId extension="D1" root="2.16.840.1.113883.3.933"/>
-    <versionNumber value="1"/>
-    <recordTarget>     <!--- Patienten-Daten -->
+    <effectiveTime value="20070905" />
+    <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25" />
+    <languageCode code="de" />
+    <setId extension="D1" root="2.16.840.1.113883.3.933" />
+    <versionNumber value="1" />
+    <recordTarget>
+        <!--- Patienten-Daten -->
         <patientRole>
-            <id extension="65" root="2.16.840.1.113883.3.933"/>
+            <id extension="123456789" root="1.2.276.0.76.4.1" />
             <addr>
                 <streetName>Riedemannweg</streetName>
                 <houseNumber></houseNumber>
@@ -28,12 +25,12 @@
                     <given>Paul</given>
                     <family>Pappel</family>
                 </name>
-                <administrativeGenderCode code="M" codeSystem="2.16.840.1.113883.5.1"/>
-                <birthTime value="19551217"/>
+                <administrativeGenderCode code="M" codeSystem="2.16.840.1.113883.5.1" />
+                <birthTime value="19551217" />
             </patient>
             <providerOrganization>
-                <telecom use="WP" value="tel:(02421)27070"/>
-                <telecom use="WP" value="fax:(02421)2707120"/>
+                <telecom use="WP" value="tel:(02421)27070" />
+                <telecom use="WP" value="fax:(02421)2707120" />
                 <addr>
                     <streetName>Kölner Landstr.</streetName>
                     <houseNumber>240</houseNumber>
@@ -43,10 +40,11 @@
             </providerOrganization>
         </patientRole>
     </recordTarget>
-    <author>    <!--- author -->
-        <time value="20070905"/>
+    <author>
+        <!--- author -->
+        <time value="20070905" />
         <assignedAuthor>
-            <id extension="2112345" root="2.16.840.1.113883.3.933"/>
+            <id extension="2112345" root="2.16.840.1.113883.3.933" />
             <assignedPerson>
                 <name>
                     <prefix>Dr. med.</prefix>
@@ -56,8 +54,8 @@
             </assignedPerson>
             <representedOrganization>
                 <name>Dr. med. Theo DURIA</name>
-                <telecom use="WP" value="tel:(02421)27070"/>
-                <telecom use="WP" value="fax:(02421)2707120"/>
+                <telecom use="WP" value="tel:(02421)27070" />
+                <telecom use="WP" value="fax:(02421)2707120" />
                 <addr>
                     <streetName>Kölner Landstr.</streetName>
                     <houseNumber>240</houseNumber>
@@ -67,12 +65,13 @@
             </representedOrganization>
         </assignedAuthor>
     </author>
-    <custodian>     <!--- Organisation von der das Dokument stammt -->
+    <custodian>
+        <!--- Organisation von der das Dokument stammt -->
         <assignedCustodian>
             <representedCustodianOrganization>
-                <id extension="M345" root="1.2.276.0.58"/>
+                <id extension="M345" root="1.2.276.0.58" />
                 <name>Dr. med. Theo DURIA</name>
-                <telecom nullFlavor="UNK"/>
+                <telecom nullFlavor="UNK" />
                 <addr>
                     <streetName>Kölner Landstr.</streetName>
                     <houseNumber>240</houseNumber>
@@ -82,7 +81,8 @@
             </representedCustodianOrganization>
         </assignedCustodian>
     </custodian>
-    <informationRecipient typeCode="PRCP">       <!--- Empfaenger -->
+    <informationRecipient typeCode="PRCP">
+        <!--- Empfaenger -->
         <intendedRecipient>
             <informationRecipient>
                 <name>
@@ -92,7 +92,7 @@
                 </name>
             </informationRecipient>
             <receivedOrganization>
-                <telecom nullFlavor="UNK"/>
+                <telecom nullFlavor="UNK" />
                 <addr>
                     <streetName>Kölner Landstr.</streetName>
                     <houseNumber>231</houseNumber>
@@ -102,11 +102,12 @@
             </receivedOrganization>
         </intendedRecipient>
     </informationRecipient>
-    <legalAuthenticator>    <!--- legalAuthenticator -->
-        <time value="20070905"/>
-        <signatureCode code="S"/>
+    <legalAuthenticator>
+        <!--- legalAuthenticator -->
+        <time value="20070905" />
+        <signatureCode code="S" />
         <assignedEntity>
-            <id extension="2112345" root="2.16.840.1.113883.3.933"/>
+            <id extension="2112345" root="2.16.840.1.113883.3.933" />
             <assignedPerson>
                 <name>
                     <prefix>Dr. med.</prefix>
@@ -116,8 +117,8 @@
             </assignedPerson>
             <representedOrganization>
                 <name>Dr. med. Theo DURIA</name>
-                <telecom use="WP" value="tel:(02421)27070"/>
-                <telecom use="WP" value="fax:(02421)2707120"/>
+                <telecom use="WP" value="tel:(02421)27070" />
+                <telecom use="WP" value="fax:(02421)2707120" />
                 <addr>
                     <streetName>Kölner Landstr.</streetName>
                     <houseNumber>240</houseNumber>
@@ -127,14 +128,15 @@
             </representedOrganization>
         </assignedEntity>
     </legalAuthenticator>
-    <participant typeCode="HLD">    <!--- Versicherungsangaben participant -->
+    <participant typeCode="HLD">
+        <!--- Versicherungsangaben participant -->
         <time>
-            <low value="20051001"/>
-            <high value="20051231" inclusive="true"/>
+            <low value="20051001" />
+            <high value="20051231" inclusive="true" />
         </time>
         <associatedEntity classCode="POLHOLD">
-            <id extension="13241324" root="2.16.840.1.113883.2.6.234.93345"/>
-            <code code="self" codeSystem="2.16.840.1.113883.5.1095"/>
+            <id extension="13241324" root="2.16.840.1.113883.2.6.234.93345" />
+            <code code="self" codeSystem="2.16.840.1.113883.5.1095" />
             <addr>
                 <streetName>Riedemannweg</streetName>
                 <houseNumber></houseNumber>
@@ -148,9 +150,9 @@
                 </name>
             </associatedPerson>
             <scopingOrganization>
-                <id extension="0177504" root="2.16.840.1.113883.2.6.234"/>
+                <id extension="0177504" root="2.16.840.1.113883.2.6.234" />
                 <name>TK Techniker Krankenkasse Mecklenburg-Vorpommern</name>
-                <telecom nullFlavor="UNK"/>
+                <telecom nullFlavor="UNK" />
                 <addr>
                     <streetName>Bramfelder Str.</streetName>
                     <houseNumber>140</houseNumber>
@@ -162,9 +164,10 @@
     </participant>
     <component>
         <structuredBody>
-            <component>                     <!-- Anamnese Komponente -->
+            <component>
+                <!-- Anamnese Komponente -->
                 <section>
-                    <code code="10164-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                    <code code="10164-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
                     <title>29.08.2005: Anamnese</title>
                     <text>
                         Sei Jahren wiederholt chronische Bronchitiden besonders bei
@@ -173,9 +176,10 @@
                     </text>
                 </section>
             </component>
-            <component>                     <!-- Befund Komponente -->
+            <component>
+                <!-- Befund Komponente -->
                 <section>
-                    <code code="10210-3" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                    <code code="10210-3" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
                     <title>29.08.2005: Befund</title>
                     <text>
                         Pulmo: Basal diskrete RGs,
@@ -196,9 +200,10 @@
                     </text>
                 </section>
             </component>
-            <component>                     <!-- Diagnose mit ICD Komponente auf CDA Level 2-->
+            <component>
+                <!-- Diagnose mit ICD Komponente auf CDA Level 2-->
                 <section>
-                    <code code="29548-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                    <code code="29548-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
                     <title>29.08.2005: Diagnosen mit ICD 10</title>
                     <text>
                         <table border="1">
@@ -241,21 +246,18 @@
                     <!-- Diagnosedarstellung auf Level 3 -->
                     <entry>
                         <observation classCode="OBS" moodCode="EVN">
-                            <code code="27754-1" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
-                                  displayName="Diagnosen"/>
-                            <statusCode code="completed"/>
+                            <code code="27754-1" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Diagnosen" />
+                            <statusCode code="completed" />
                             <effectiveTime>
-                                <center value="20050829"/>
+                                <center value="20050829" />
                             </effectiveTime>
-                            <value xsi:type="CD" code="J45.0" codeSystem="2.16.840.1.113883.3.7.1.6.3"
-                                   codeSystemName="ICD10" displayName="Allergisches Asthma ">
+                            <value xsi:type="CD" code="J45.0" codeSystem="2.16.840.1.113883.3.7.1.6.3" codeSystemName="ICD10" displayName="Allergisches Asthma ">
                                 <originalText>
-                                    <reference value="#DIAG200508291"/>
+                                    <reference value="#DIAG200508291" />
                                 </originalText>
                                 <qualifier>
-                                    <name code="8" codeSystem="2.16.840.1.113883.3.7.1"/>
-                                    <value code="G" codeSystem="2.16.840.1.113883.3.7.1.8"
-                                           displayName="gesicherte Diagnose"/>
+                                    <name code="8" codeSystem="2.16.840.1.113883.3.7.1" />
+                                    <value code="G" codeSystem="2.16.840.1.113883.3.7.1.8" displayName="gesicherte Diagnose" />
                                 </qualifier>
                             </value>
                         </observation>
@@ -263,21 +265,18 @@
                     <!-- Diagnosedarstellung auf Level 3 -->
                     <entry>
                         <observation classCode="OBS" moodCode="EVN" negationInd="true">
-                            <code code="27754-1" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
-                                  displayName="Diagnosen"/>
-                            <statusCode code="completed"/>
+                            <code code="27754-1" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Diagnosen" />
+                            <statusCode code="completed" />
                             <effectiveTime>
-                                <center value="20050829"/>
+                                <center value="20050829" />
                             </effectiveTime>
-                            <value xsi:type="CD" code="J43.9" codeSystem="2.16.840.1.113883.3.7.1.6.3"
-                                   codeSystemName="ICD10" displayName="Ausschluss Lungenemphysem ">
+                            <value xsi:type="CD" code="J43.9" codeSystem="2.16.840.1.113883.3.7.1.6.3" codeSystemName="ICD10" displayName="Ausschluss Lungenemphysem ">
                                 <originalText>
-                                    <reference value="#DIAG200508292"/>
+                                    <reference value="#DIAG200508292" />
                                 </originalText>
                                 <qualifier>
-                                    <name code="8" codeSystem="2.16.840.1.113883.3.7.1"/>
-                                    <value code="A" codeSystem="2.16.840.1.113883.3.7.1.8"
-                                           displayName="Auschlussdiagnose"/>
+                                    <name code="8" codeSystem="2.16.840.1.113883.3.7.1" />
+                                    <value code="A" codeSystem="2.16.840.1.113883.3.7.1.8" displayName="Auschlussdiagnose" />
                                 </qualifier>
                             </value>
                         </observation>
@@ -285,30 +284,28 @@
                     <!-- Diagnosedarstellung auf Level 3 -->
                     <entry>
                         <observation classCode="OBS" moodCode="EVN">
-                            <code code="27754-1" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
-                                  displayName="Diagnosen"/>
-                            <statusCode code="completed"/>
+                            <code code="27754-1" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Diagnosen" />
+                            <statusCode code="completed" />
                             <effectiveTime>
-                                <center value="20050829"/>
+                                <center value="20050829" />
                             </effectiveTime>
-                            <value xsi:type="CD" code="J31.1" codeSystem="2.16.840.1.113883.3.7.1.6.3"
-                                   codeSystemName="ICD10" displayName="V.a. Allergische Rhinopathie durch Pollen ">
+                            <value xsi:type="CD" code="J31.1" codeSystem="2.16.840.1.113883.3.7.1.6.3" codeSystemName="ICD10" displayName="V.a. Allergische Rhinopathie durch Pollen ">
                                 <originalText>
-                                    <reference value="#DIAG200508293"/>
+                                    <reference value="#DIAG200508293" />
                                 </originalText>
                                 <qualifier>
-                                    <name code="8" codeSystem="2.16.840.1.113883.3.7.1"/>
-                                    <value code="V" codeSystem="2.16.840.1.113883.3.7.1.8"
-                                           displayName="Verdachtsdiagnose"/>
+                                    <name code="8" codeSystem="2.16.840.1.113883.3.7.1" />
+                                    <value code="V" codeSystem="2.16.840.1.113883.3.7.1.8" displayName="Verdachtsdiagnose" />
                                 </qualifier>
                             </value>
                         </observation>
                     </entry>
                 </section>
             </component>
-            <component>                     <!-- Diagnose mit ICD Komponente auf CDA Level 2-->
+            <component>
+                <!-- Diagnose mit ICD Komponente auf CDA Level 2-->
                 <section>
-                    <code code="29548-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                    <code code="29548-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
                     <title>26.10.2005: Diagnosen mit ICD 10</title>
                     <text>
                         <table border="1">
@@ -335,34 +332,32 @@
                     <!-- Diagnosedarstellung auf Level 3 -->
                     <entry>
                         <observation classCode="OBS" moodCode="EVN">
-                            <code code="27754-1" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
-                                  displayName="Diagnosen"/>
-                            <statusCode code="completed"/>
+                            <code code="27754-1" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Diagnosen" />
+                            <statusCode code="completed" />
                             <effectiveTime>
-                                <center value="20051026"/>
+                                <center value="20051026" />
                             </effectiveTime>
-                            <value xsi:type="CD" code="H60.0" codeSystem="2.16.840.1.113883.3.7.1.6.3"
-                                   codeSystemName="ICD10" displayName="V.a. Abszess des äußeren Ohres ">
+                            <value xsi:type="CD" code="H60.0" codeSystem="2.16.840.1.113883.3.7.1.6.3" codeSystemName="ICD10" displayName="V.a. Abszess des äußeren Ohres ">
                                 <originalText>
-                                    <reference value="#DIAG200510261"/>
+                                    <reference value="#DIAG200510261" />
                                 </originalText>
                                 <qualifier>
-                                    <name code="8" codeSystem="2.16.840.1.113883.3.7.1"/>
-                                    <value code="V" codeSystem="2.16.840.1.113883.3.7.1.8"
-                                           displayName="Verdachtsdiagnose"/>
+                                    <name code="8" codeSystem="2.16.840.1.113883.3.7.1" />
+                                    <value code="V" codeSystem="2.16.840.1.113883.3.7.1.8" displayName="Verdachtsdiagnose" />
                                 </qualifier>
                                 <qualifier>
-                                    <name code="7" codeSystem="2.16.840.1.113883.3.7.1"/>
-                                    <value code="R" codeSystem="2.16.840.1.113883.3.7.1.7"/>
+                                    <name code="7" codeSystem="2.16.840.1.113883.3.7.1" />
+                                    <value code="R" codeSystem="2.16.840.1.113883.3.7.1.7" />
                                 </qualifier>
                             </value>
                         </observation>
                     </entry>
                 </section>
             </component>
-            <component>                     <!-- Laborwerte auf CDA Level 2 -->
+            <component>
+                <!-- Laborwerte auf CDA Level 2 -->
                 <section>
-                    <code code="13133-3" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                    <code code="13133-3" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
                     <title>25.06.2005: Laborwerte</title>
                     <text>
                         <table border="1">
@@ -408,9 +403,10 @@
                     </text>
                 </section>
             </component>
-            <component>                     <!-- Laborwerte auf CDA Level 2 -->
+            <component>
+                <!-- Laborwerte auf CDA Level 2 -->
                 <section>
-                    <code code="13133-3" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                    <code code="13133-3" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
                     <title>26.06.2005: Laborwerte</title>
                     <text>
                         <table border="1">
@@ -483,9 +479,10 @@
                     </text>
                 </section>
             </component>
-            <component>                     <!-- Laborwerte auf CDA Level 2 -->
+            <component>
+                <!-- Laborwerte auf CDA Level 2 -->
                 <section>
-                    <code code="13133-3" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                    <code code="13133-3" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
                     <title>28.06.2005: Laborwerte</title>
                     <text>
                         <table border="1">
@@ -540,9 +537,10 @@
                     </text>
                 </section>
             </component>
-            <component>                     <!-- Laborwerte auf CDA Level 2 -->
+            <component>
+                <!-- Laborwerte auf CDA Level 2 -->
                 <section>
-                    <code code="13133-3" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                    <code code="13133-3" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
                     <title>29.08.2005: Laborwerte</title>
                     <text>
                         <table border="1">
@@ -588,18 +586,20 @@
                     </text>
                 </section>
             </component>
-            <component>                     <!-- Roentgenbefund Komponente -->
+            <component>
+                <!-- Roentgenbefund Komponente -->
                 <section>
-                    <code code="11522-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                    <code code="11522-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
                     <title>26.05.2005: Roentgenbefund</title>
                     <text>
                         Rö-Thorax: o.B.
                     </text>
                 </section>
             </component>
-            <component>                     <!-- Entlassbefund Komponente -->
+            <component>
+                <!-- Entlassbefund Komponente -->
                 <section>
-                    <code code="29554-3" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                    <code code="29554-3" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
                     <title>29.08.2005: Entlassbefund</title>
                     <text>
                         Intensiviert behandlungsbedürftiges Bronchialasthma. Ich
@@ -608,18 +608,20 @@
                     </text>
                 </section>
             </component>
-            <component>                     <!-- Therapien Komponente -->
+            <component>
+                <!-- Therapien Komponente -->
                 <section>
-                    <code code="11111-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                    <code code="11111-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
                     <title>29.08.2005: Therapien</title>
                     <text>
                         Atemur morgens 2x und abends 2x
                     </text>
                 </section>
             </component>
-            <component>                     <!-- Empfehlung Komponente -->
+            <component>
+                <!-- Empfehlung Komponente -->
                 <section>
-                    <code code="18776-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                    <code code="18776-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
                     <title>29.08.2005: Empfehlung</title>
                     <text>
                         Sollten nach der empfohlenen Medikation mit Atemur die

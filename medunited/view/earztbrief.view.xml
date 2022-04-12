@@ -1,15 +1,22 @@
-<mvc:View controllerName="medunited.controller.earztbrief" 
-            displayBlock="true" 
-            xmlns:mvc="sap.ui.core.mvc" 
-            xmlns:l="sap.ui.layout" 
-            xmlns:core="sap.ui.core" 
-            xmlns:tnt="sap.tnt" 
-            xmlns="sap.m">
+<mvc:View xmlns:cards="sap.f.cards" controllerName="medunited.controller.earztbrief" displayBlock="true" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:tnt="sap.tnt" xmlns="sap.m">
     <App id="app">
-        <Page title="Create Enterprise-ready Web Apps with Ease">
-            <Label text="Given Name" />
-            <Input value="{/recordTarget/patientRole/patient/name/given}"/>
-            <!-- Add all the other fields -->
+        <Page title="med-united" backgroundDesign="Solid">
+            <l:VerticalLayout class="sapUiContentPadding" width="100%">
+                <Label text="Vorname" />
+                <Input value="{/recordTarget/patientRole/patient/name/given}" />
+                <Label text="Nachname" />
+                <Input value="{/recordTarget/patientRole/patient/name/family}" />
+                <Label text="Versichertennummer" />
+                <Input value="{/recordTarget/patientRole/id/@extension}" />
+                <Label text="Geburtsdatum" />
+                <Input value="{/recordTarget/patientRole/patient/birthTime}" />
+                <Label text="Zeitpunkt der Dokumentation" />
+                <Input value="{/author/time}" />
+                <Label text="Autor Id" />
+                <Input value="{/author/assignedAuthor/id/@extension}" />
+                <Label text="Organisation Id" />
+                <Input value="{/custodian/assignedCustodian/representedCustodianOrganization/id/@extension}" />
+            </l:VerticalLayout>
             <footer>
                 <Toolbar>
                     <ToolbarSpacer />

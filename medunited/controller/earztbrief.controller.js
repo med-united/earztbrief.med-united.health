@@ -5,7 +5,7 @@ sap.ui.define(
         return Controller.extend("medunited.view.earztbrief", {
             onInit: function () {
                 this.getView().setModel(
-                    new XMLModel("./template/Arztbrief-02-Level3.XML")
+                    new XMLModel("./template/Arztbrief-Minimal.XML")
                 );
             },
             onClick: function() {
