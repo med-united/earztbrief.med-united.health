@@ -24,12 +24,14 @@ sap.ui.define(
                     contactmessage: oXmlModel.getProperty("/component/structuredBody/component/section").toString(),
                     attachment: 'data:text/xml;base64,'+btoa(unescape(encodeURIComponent(sXml))),
                 };
-                emailjs.send(serviceID, templateID, templateParams, userId)
-                .then(() => {
-                    alert('Sent message!');
-                }, (err) => {
-                    alert(JSON.stringify(err));
-                });                
+                fetch('https://httpbin.org/post', {
+                    method: 'POST',
+                    headers: {
+                      'Accept': 'application/json',
+                      'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(templateParams)
+                  });
 
                 // TODO: Add PDF/A document
             }
