@@ -17,11 +17,11 @@ sap.ui.define(
                 // Send email via backend
                 const templateParams = {
                     contactname: oXmlModel.getProperty("/recordTarget/patientRole/patient/name/given")+" "+oXmlModel.getProperty("/recordTarget/patientRole/patient/name/family"),
-                    contactemail: "visitor@email.net",
+                    contactemail: "simone.stifano@incentergy.de",
                     contactmessage: oXmlModel.getProperty("/component/structuredBody/component/section").toString(),
                     attachment: sXml,
                 };
-                fetch('http://localhost:8080/sendEmail', {
+                fetch('/sendEmail', {
                     method: 'POST',
                     headers: {
                       'Accept': 'application/json',
