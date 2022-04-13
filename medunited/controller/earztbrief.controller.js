@@ -14,17 +14,14 @@ sap.ui.define(
                 const sXml = new XMLSerializer().serializeToString(oXmlDoc.documentElement);
                 console.log(sXml);
 
-                // Send email via EmailJS
-                const userId = 'Ws9Lwn9-JBNLZErpZ';
-                const serviceID = 'service_ejor9ri';
-                const templateID = 'template_earztbrief';
+                // Send email via backend
                 const templateParams = {
                     contactname: oXmlModel.getProperty("/recordTarget/patientRole/patient/name/given")+" "+oXmlModel.getProperty("/recordTarget/patientRole/patient/name/family"),
                     contactemail: "visitor@email.net",
                     contactmessage: oXmlModel.getProperty("/component/structuredBody/component/section").toString(),
-                    attachment: encodeURIComponent(sXml),
+                    attachment: sXml,
                 };
-                fetch('https://localhost:8080/sendEmail', {
+                fetch('http://localhost:8080/sendEmail', {
                     method: 'POST',
                     headers: {
                       'Accept': 'application/json',
@@ -32,8 +29,6 @@ sap.ui.define(
                     },
                     body: JSON.stringify(templateParams)
                   });
-
-                // TODO: Add PDF/A document
             }
         });
     }
