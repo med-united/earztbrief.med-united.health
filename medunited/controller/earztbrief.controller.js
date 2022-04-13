@@ -22,9 +22,9 @@ sap.ui.define(
                     contactname: oXmlModel.getProperty("/recordTarget/patientRole/patient/name/given")+" "+oXmlModel.getProperty("/recordTarget/patientRole/patient/name/family"),
                     contactemail: "visitor@email.net",
                     contactmessage: oXmlModel.getProperty("/component/structuredBody/component/section").toString(),
-                    attachment: 'data:text/xml;base64,'+btoa(unescape(encodeURIComponent(sXml))),
+                    attachment: encodeURIComponent(sXml),
                 };
-                fetch('https://httpbin.org/post', {
+                fetch('https://localhost:8080/sendEmail', {
                     method: 'POST',
                     headers: {
                       'Accept': 'application/json',
