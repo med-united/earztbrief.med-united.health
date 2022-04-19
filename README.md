@@ -1,2 +1,2 @@
 # Patient-email-earztbrief-frontend
-Patient-email-earztbrief-frontend
+patient-email-earztbrief-frontend
