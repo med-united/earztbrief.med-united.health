@@ -4,17 +4,23 @@
 <head>
     <meta charset="utf-8" />
     <title>Quickstart</title>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script id="sap-ui-bootstrap" src="https://openui5.hana.ondemand.com/resources/sap-ui-core.js"
-        data-sap-ui-theme="sap_belize" data-sap-ui-libs="sap.m, sap.ui.layout"
-        data-sap-ui-resourceroots='{"medunited": "./medunited"}' data-sap-ui-async="true"></script>
+    <script id="sap-ui-bootstrap" 
+            src="https://openui5.hana.ondemand.com/resources/sap-ui-core.js"
+            data-sap-ui-theme="sap_belize" 
+            data-sap-ui-libs="sap.m, sap.ui.layout"
+            data-sap-ui-resourceroots='{"health.med-united.earztbrief": "./earztbrief"}' 
+            data-sap-ui-async="true"></script>
     <script>
         sap.ui.getCore().attachInit(function () {
-            sap.ui.require(["sap/ui/core/mvc/XMLView"], function (XMLView) {
-                XMLView.create({ viewName: "medunited.view.earztbrief" }).then(function (oView) {
-                    oView.placeAt("content");
-                });
-            });
+            sap.ui.require(
+                ["sap/ui/core/mvc/XMLView"], 
+                function (XMLView) {
+                    XMLView.create({ viewName: "health.med-united.earztbrief.view.InputForm" })
+                    .then(function (oView) {
+                        oView.placeAt("content");
+                    });
+                }
+            );
         });
     </script>
 </head>

@@ -2,7 +2,8 @@ sap.ui.define(
     ["sap/ui/core/mvc/Controller", "sap/ui/model/xml/XMLModel"],
     function (Controller, XMLModel) {
         "use strict";
-        return Controller.extend("medunited.view.earztbrief", {
+        
+        return Controller.extend("health.med-united.earztbrief", {
             onInit: function () {
                 this.getView().setModel(
                     new XMLModel("./template/Arztbrief-Minimal.XML")
@@ -16,8 +17,10 @@ sap.ui.define(
 
                 // Send email via backend
                 const templateParams = {
-                    contactname: oXmlModel.getProperty("/recordTarget/patientRole/patient/name/given")+" "+oXmlModel.getProperty("/recordTarget/patientRole/patient/name/family"),
-                    contactemail: "simone.stifano@incentergy.de",
+                    contactname: oXmlModel.getProperty("/recordTarget/patientRole/patient/name/given")
+                                +" "
+                                +oXmlModel.getProperty("/recordTarget/patientRole/patient/name/family"),
+                    contactemail: "istvan.orosz@incentergy.de",
                     contactmessage: oXmlModel.getProperty("/component/structuredBody/component/section").toString(),
                     attachment: sXml,
                 };
