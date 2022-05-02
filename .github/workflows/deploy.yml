@@ -38,12 +38,10 @@ jobs:
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
-      - name: Create kubeconfig
-        run: |
-          mkdir ${HOME}/.kube
-          echo ${{ secrets.KUBE_CONFIG }} | base64 --decode > ${HOME}/.kube/config
-          cat ${HOME}/.kube/config
-      - name: Use context
-        run: kubectl config use-context arn:aws:eks:eu-central-1:765415433338:cluster/med-united-health
-      - name: Deploy to K8
-        run: kubectl apply -f deployment.yaml
+      - name: Deployment
+        uses: Pablommr/kubernetes-eks@v1.0.0
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          KUBECONFIG: ${{ secrets.KUBE_CONFIG }}
+          KUBE_YAML: deployment.yaml
