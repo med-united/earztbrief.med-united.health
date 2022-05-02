@@ -23,11 +23,11 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
 
-      - name: Kubernetes Set Context
-        uses: Azure/k8s-set-context@v2
-        with:
-          method: kubeconfig
-          kubeconfig: ${{ secrets.KUBE_CONFIG }}
+      # - name: Kubernetes Set Context
+      #   uses: Azure/k8s-set-context@v2
+      #   with:
+      #     method: kubeconfig
+      #     kubeconfig: ${{ secrets.KUBE_CONFIG }}
 
       - name: Build, tag, and push image to Amazon ECR
         env:
@@ -37,4 +37,12 @@ jobs:
         run: |
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-          kubectl apply -f deployment.yaml
+
+      - name: Create kubeconfig
+        run: |
+          mkdir ${HOME}/.kube
+          ${{ secrets.KUBE_CONFIG }} | base64 --decode > {HOME}/.kube/config
+      - name: Use context
+        run: kubectl config use-context arn:aws:eks:eu-central-1:765415433338:cluster/med-united-health
+      - name:
+        run: kubectl apply -f deployment.yaml
