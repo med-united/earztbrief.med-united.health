@@ -44,5 +44,5 @@ jobs:
           ${{ secrets.KUBE_CONFIG }} | base64 --decode > {HOME}/.kube/config
       - name: Use context
         run: kubectl config use-context arn:aws:eks:eu-central-1:765415433338:cluster/med-united-health
-      - name:
+      - name: Deploy to K8
         run: kubectl apply -f deployment.yaml
