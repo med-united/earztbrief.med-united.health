@@ -18,4 +18,4 @@ spec:
       - name: earztbrief
         image: 765415433338.dkr.ecr.eu-central-1.amazonaws.com/registry:earztbrief
         ports:
-        - containerPort: 80
+        - containerPort: 8080
