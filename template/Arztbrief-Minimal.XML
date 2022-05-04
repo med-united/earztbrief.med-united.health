@@ -17,6 +17,9 @@
                 </name>
                 <birthTime value="19410912" />
             </patient>
+            <providerOrganization>
+                <telecom use="WP" value="" />
+            </providerOrganization>
             <telecom value="mailto:felicitas@email.net"/>
         </patientRole>
     </recordTarget>

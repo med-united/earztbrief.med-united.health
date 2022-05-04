@@ -19,6 +19,8 @@
                 <DatePicker value="{/recordTarget/patientRole/patient/birthTime/@value}" />
                 <Label text="Email" />
                 <Input value="{/recordTarget/patientRole/telecom/@value}" />
+                <Label text="Receiver Email" />
+                <Input value="{/recordTarget/patientRole/providerOrganization/telecom/@value}" />
                 <Label text="Zeitpunkt der Dokumentation" />
                 <DateTimePicker value="{/author/time/@value}" />
                 <Label text="Autor Id" />
