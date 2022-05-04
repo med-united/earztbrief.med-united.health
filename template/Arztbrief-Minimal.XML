@@ -9,7 +9,7 @@
     <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25" />
     <recordTarget>
         <patientRole>
-            <id extension="1543627549" root="1.2.276.0.76.4.1" />
+            <id extension="" root="1.2.276.0.76.4.1" />
             <patient>
                 <name>
                     <given>Felicitas</given>
