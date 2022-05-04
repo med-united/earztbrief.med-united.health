@@ -41,6 +41,10 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: "nginx"
 spec:
+  tls:
+  - hosts:
+    - earztbrief.med-united.health
+    secretName: earztbrief-tls
   rules:
   - host: earztbrief.med-united.health
     http:
@@ -52,5 +56,11 @@ spec:
               name: earztbrief
               port:
                 number: 80
-
+        - path: /sendEmail
+          pathType: Prefix
+          backend:
+            service:
+              name: earztbrief-sender
+              port:
+                number: 8080
   
