@@ -12,8 +12,8 @@
             <id extension="" root="1.2.276.0.76.4.1" />
             <patient>
                 <name>
-                    <given>Felicitas</given>
-                    <family>Aamenophis</family>
+                    <given></given>
+                    <family></family>
                 </name>
                 <birthTime value="19410912" />
             </patient>
