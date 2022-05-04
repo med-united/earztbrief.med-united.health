@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: earztbrief
-        image: 765415433338.dkr.ecr.eu-central-1.amazonaws.com/registry:earztbrief
+        image: 765415433338.dkr.ecr.eu-central-1.amazonaws.com/earztbrief
         imagePullPolicy: Always
         ports:
         - containerPort: 80
