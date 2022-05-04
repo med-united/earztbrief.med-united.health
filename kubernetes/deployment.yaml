@@ -52,11 +52,5 @@ spec:
               name: earztbrief
               port:
                 number: 80
-        - path: /sendEmail
-          pathType: Prefix
-          backend:
-            service:
-              name: earztbrief-sender
-              port:
-                number: 8080
+
   
