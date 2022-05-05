@@ -38,7 +38,7 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ingress
+  name: earztbrief
   annotations:
     kubernetes.io/ingress.class: "nginx"
 spec:
@@ -57,11 +57,4 @@ spec:
               name: earztbrief
               port:
                 number: 80
-        - path: /sendEmail
-          pathType: Prefix
-          backend:
-            service:
-              name: earztbrief-sender
-              port:
-                number: 8080
   
