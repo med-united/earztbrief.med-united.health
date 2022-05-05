@@ -7,28 +7,46 @@
           xmlns:tnt="sap.tnt" 
           displayBlock="true">
     <App id="app">
-        <Page title="Send Medication Request" backgroundDesign="Solid">
-            <l:VerticalLayout class="sapUiContentPadding" width="100%">
-                <Label text="Vorname" />
-                <Input value="{/recordTarget/patientRole/patient/name/given}" />
+        <Page title="Send Medication Request" backgroundDesign="Solid" class="sapUiContentPadding">
+            <l:VerticalLayout width="50%">
+                <Label text="Vorname" labelFor="firstname" />
+                <Input id="firstname" value="{/recordTarget/patientRole/patient/name/given}"/>
+            </l:VerticalLayout>
+            <l:VerticalLayout width="50%">
                 <Label text="Nachname" />
-                <Input value="{/recordTarget/patientRole/patient/name/family}" />
+                <Input value="{/recordTarget/patientRole/patient/name/family}"/>
+            </l:VerticalLayout>
+            <l:VerticalLayout width="50%">
                 <Label text="Versichertennummer" />
-                <Input value="{/recordTarget/patientRole/id/@extension}" />
+                <Input value="{/recordTarget/patientRole/id/@extension}"/>
+            </l:VerticalLayout>
+            <l:VerticalLayout width="50%">
                 <Label text="Geburtsdatum" />
-                <DatePicker value="{/recordTarget/patientRole/patient/birthTime/@value}" />
-                <Label text="Email" />
+                <DatePicker value="{/recordTarget/patientRole/patient/birthTime/@value}"/>
+            </l:VerticalLayout>
+            <l:VerticalLayout width="50%">
+                <Label text="Sender Email" />
                 <Input value="{/recordTarget/patientRole/telecom/@value}" />
+            </l:VerticalLayout>
+            <l:VerticalLayout width="50%">
                 <Label text="Receiver Email" />
                 <Input value="{/recordTarget/patientRole/providerOrganization/telecom/@value}" />
+            </l:VerticalLayout>
+            <l:VerticalLayout width="30%">
                 <Label text="Zeitpunkt der Dokumentation" />
                 <DateTimePicker value="{/author/time/@value}" />
+            </l:VerticalLayout>
+            <l:VerticalLayout width="30%">
                 <Label text="Autor Id" />
                 <Input value="{/author/assignedAuthor/id/@extension}" />
+            </l:VerticalLayout>
+            <l:VerticalLayout width="30%">
                 <Label text="Organisation Id" />
                 <Input value="{/custodian/assignedCustodian/representedCustodianOrganization/id/@extension}" />
+            </l:VerticalLayout>
+            <l:VerticalLayout width="100%">
                 <Label text="Nachricht" />
-                <Input value="{/component/structuredBody/component/section}" />
+                <TextArea value="{/component/structuredBody/component/section}" rows="8" width="100%"/>
             </l:VerticalLayout>
             <footer>
                 <Toolbar>
