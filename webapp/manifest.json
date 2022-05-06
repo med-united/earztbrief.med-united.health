@@ -36,8 +36,8 @@
                 "type": "sap.ui.model.resource.ResourceModel",
                 "settings": {
                     "bundleName": "health.med-united.earztbrief.i18n.i18n",
-                    "supportedLocales": ["","DE", "EN"],
-                    "fallbackLocale": ""
+                    "supportedLocales": ["DE", "EN"],
+                    "fallbackLocale": "EN"
                 }
             }
         },

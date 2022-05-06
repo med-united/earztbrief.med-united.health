@@ -9,43 +9,43 @@
     <App id="app">
         <Page title="Send Medication Request" backgroundDesign="Solid" class="sapUiContentPadding">
             <l:VerticalLayout width="50%">
-                <Label text="Vorname" labelFor="firstname" />
+                <Label text="{i18n>first.name}" labelFor="firstname" />
                 <Input id="firstname" value="{/recordTarget/patientRole/patient/name/given}"/>
             </l:VerticalLayout>
             <l:VerticalLayout width="50%">
-                <Label text="Nachname" />
+                <Label text="{i18n>last.name}" />
                 <Input value="{/recordTarget/patientRole/patient/name/family}"/>
             </l:VerticalLayout>
             <l:VerticalLayout width="50%">
-                <Label text="Versichertennummer" />
+                <Label text="{i18n>insurance.number}" />
                 <Input value="{/recordTarget/patientRole/id/@extension}"/>
             </l:VerticalLayout>
             <l:VerticalLayout width="50%">
-                <Label text="Geburtsdatum" />
+                <Label text="{i18n>birthdate}" />
                 <DatePicker value="{/recordTarget/patientRole/patient/birthTime/@value}"/>
             </l:VerticalLayout>
             <l:VerticalLayout width="50%">
-                <Label text="Sender Email" />
+                <Label text="{i18n>sender.email}" />
                 <Input value="{/recordTarget/patientRole/telecom/@value}" />
             </l:VerticalLayout>
             <l:VerticalLayout width="50%">
-                <Label text="Receiver Email" />
+                <Label text="{i18n>receiver.email}" />
                 <Input value="{/recordTarget/patientRole/providerOrganization/telecom/@value}" />
             </l:VerticalLayout>
             <l:VerticalLayout width="30%">
-                <Label text="Zeitpunkt der Dokumentation" />
+                <Label text="{i18n>time.of.doc.creation}" />
                 <DateTimePicker value="{/author/time/@value}" />
             </l:VerticalLayout>
             <l:VerticalLayout width="30%">
-                <Label text="Autor Id" />
+                <Label text="{i18n>author.id}" />
                 <Input value="{/author/assignedAuthor/id/@extension}" />
             </l:VerticalLayout>
             <l:VerticalLayout width="30%">
-                <Label text="Organisation Id" />
+                <Label text="{i18n>organisation.id}" />
                 <Input value="{/custodian/assignedCustodian/representedCustodianOrganization/id/@extension}" />
             </l:VerticalLayout>
             <l:VerticalLayout width="100%">
-                <Label text="Nachricht" />
+                <Label text="{i18n>message}" />
                 <TextArea value="{/component/structuredBody/component/section}" rows="8" width="100%"/>
             </l:VerticalLayout>
             <footer>
