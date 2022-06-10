@@ -24,7 +24,7 @@ sap.ui.define(
                     contactmessage: oXmlModel.getProperty("/component/structuredBody/component/section").toString(),
                     attachment: sXml,
                 };
-                fetch('https://earztbrief-sender.med-united.health/sendEmail', {
+                fetch('https://earztbrief-sender.med-united.health/sendEmail/earztbrief', {
                     method: 'POST',
                     headers: {
                         'Accept': 'application/json',
