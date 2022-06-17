@@ -17,11 +17,11 @@ sap.ui.define(
 
                 // Send email via backend
                 const templateParams = {
-                    contactname: oXmlModel.getProperty("/recordTarget/patientRole/patient/name/given")
+                    contactName: oXmlModel.getProperty("/recordTarget/patientRole/patient/name/given")
                         + " "
                         + oXmlModel.getProperty("/recordTarget/patientRole/patient/name/family"),
-                    contactemail: oXmlModel.getProperty("/recordTarget/patientRole/providerOrganization/telecom/@value"),
-                    contactmessage: oXmlModel.getProperty("/component/structuredBody/component/section").toString(),
+                    contactEmail: oXmlModel.getProperty("/recordTarget/patientRole/providerOrganization/telecom/@value"),
+                    contactMessage: oXmlModel.getProperty("/component/structuredBody/component/section").toString(),
                     attachment: sXml,
                 };
                 fetch('https://mail-sender.med-united.health/sendEmail/earztbrief', {
