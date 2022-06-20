@@ -12,7 +12,10 @@ sap.ui.define(
             onClick: function () {
                 const oXmlModel = this.getView().getModel();
                 const oXmlDoc = oXmlModel.getData();
+                //create an empty array 
+                const xmlParameter = [];
                 const sXml = new XMLSerializer().serializeToString(oXmlDoc.documentElement);
+                xmlParameter.push(sXml);
                 console.log(sXml);
 
                 // Send email via backend
@@ -22,7 +25,8 @@ sap.ui.define(
                         + oXmlModel.getProperty("/recordTarget/patientRole/patient/name/family"),
                     contactEmail: oXmlModel.getProperty("/recordTarget/patientRole/providerOrganization/telecom/@value"),
                     contactMessage: oXmlModel.getProperty("/component/structuredBody/component/section").toString(),
-                    attachment: sXml,
+                    attachment: xmlParameter,
+                    datamatrices: null
                 };
                 fetch('https://mail-sender.med-united.health/sendEmail/earztbrief', {
                     method: 'POST',
