@@ -18,6 +18,7 @@ sap.ui.define(
                 xmlParameter.push(sXml);
                 console.log(sXml);
 
+                //TODO: delete this and send null (adjust backend to receive null values)
                 const pdf = []
 
                 // Send email via backend
