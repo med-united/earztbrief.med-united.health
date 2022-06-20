@@ -18,6 +18,8 @@ sap.ui.define(
                 xmlParameter.push(sXml);
                 console.log(sXml);
 
+                const pdf = []
+
                 // Send email via backend
                 const templateParams = {
                     contactName: oXmlModel.getProperty("/recordTarget/patientRole/patient/name/given")
@@ -26,7 +28,7 @@ sap.ui.define(
                     contactEmail: oXmlModel.getProperty("/recordTarget/patientRole/providerOrganization/telecom/@value"),
                     contactMessage: oXmlModel.getProperty("/component/structuredBody/component/section").toString(),
                     attachment: xmlParameter,
-                    datamatrices: null
+                    datamatrices: pdf
                 };
                 fetch('https://mail-sender.med-united.health/sendEmail/earztbrief', {
                     method: 'POST',
