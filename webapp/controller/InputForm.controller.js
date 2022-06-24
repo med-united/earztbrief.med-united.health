@@ -4,9 +4,11 @@ sap.ui.define(
     "sap/ui/model/json/JSONModel",
     "../model/MedicationRequester",
     "../model/Medication",
-    "../control/DataMatrixCode"],
+    "../control/DataMatrixCode",
+    "../search/MedicationSearchProvider",
+    "sap/ui/core/Item"],
 
-    function (Controller, XMLModel, JSONModel, MedicationRequester, Medication, DataMatrixCode) {
+    function (Controller, XMLModel, JSONModel, MedicationRequester, Medication, DataMatrixCode, MedicationSearchProvider, Item) {
         "use strict";
 
         return Controller.extend("medunited.earztbrief.controller.InputForm", {
@@ -21,6 +23,12 @@ sap.ui.define(
                 };
                 this.getView().setModel(new JSONModel(), "Medications");
                 this.getView().getModel("Medications").setData(this._data);
+
+                this._oMedicationSearchProvider = new MedicationSearchProvider();
+			    // npm install -g local-cors-proxy
+			    // lcp --proxyUrl https://www.apotheken-umschau.de/
+			    // http://localhost:8010/proxy
+			    this._oMedicationSearchProvider.setSuggestUrl("https://medication.med-united.health/ajax/search/drugs/auto/?query={searchTerms}");
             },
 
             addRow : function () {
@@ -224,6 +232,70 @@ sap.ui.define(
             _getBase64String: function (dataURL) {
                 var idx = dataURL.indexOf('base64,') + 'base64,'.length;
                 return dataURL.substring(idx);
+            },
+
+            onSuggestMedicationName: function (oEvent) {
+                var sTerm = oEvent.getParameter("suggestValue");
+                var oController = this.getView().getController();
+    
+                this._oMedicationSearchProvider.suggest(sTerm, function (sValue, aSuggestions) {
+                    this.destroySuggestionItems();
+    
+                    for (var i = 0; i < aSuggestions.length; i++) {
+                        this.addSuggestionItem(new Item({
+                            text: oController.cleanMedicationNameResults(aSuggestions[i].name) + " (" + aSuggestions[i].pzn + ")"
+                        }));
+                    }
+                }.bind(oEvent.getSource()));
+            },
+
+            cleanMedicationNameResults: function (medicationNameFromSearchProvider) {
+                let htmlTagsRegex = /<\/?[^>]+>/g;
+                return medicationNameFromSearchProvider.replace(htmlTagsRegex, '');
+            },
+
+            onSuggestionMedicationNameSelected: function (oEvent) {
+                const oItem = oEvent.getParameter("selectedItem");
+                let itemSelected = oItem.getText();
+                let pznRegex = new RegExp(/\([0-9]*\)/, "g");
+                let allNumbersBetweenParenthesisMatches = itemSelected.match(pznRegex);
+                let lastMatch = allNumbersBetweenParenthesisMatches.length-1;
+    
+                let medicationPZN = allNumbersBetweenParenthesisMatches[lastMatch].replace(/\(/, '').replace(/\)/, '');
+                let medicationName = itemSelected.replace("\(" + medicationPZN + "\)", "");
+    
+                var source = oEvent.getSource();
+                source.getModel("Medications").setProperty(source.getBindingContext("Medications").getPath("name"), medicationName);
+                source.getModel("Medications").setProperty(source.getBindingContext("Medications").getPath("pzn"), medicationPZN);
+            },
+
+            onSuggestPZN: function (oEvent) {
+                var sTerm = oEvent.getParameter("suggestValue");
+                var oController = this.getView().getController();
+    
+                this._oMedicationSearchProvider.suggest(sTerm, function (sValue, aSuggestions) {
+                    this.destroySuggestionItems();
+    
+                    for (var i = 0; i < aSuggestions.length; i++) {
+                        this.addSuggestionItem(new Item({
+                            text: aSuggestions[i].pzn + " (" + oController.cleanMedicationNameResults(aSuggestions[i].name) + ")"
+                        }));
+                    }
+                }.bind(oEvent.getSource()));
+            },
+
+            onSuggestionPZNSelected: function (oEvent) {
+                const oItem = oEvent.getParameter("selectedItem");
+                let itemSelected = oItem.getText();
+                let pznRegex = new RegExp(/\d*\s/);
+                let pznMatch = itemSelected.match(pznRegex)[0];
+    
+                let medicationPZN = pznMatch.trim();
+                let medicationName = itemSelected.replace(pznRegex, "").slice(1, -1);
+    
+                var source = oEvent.getSource();
+                source.getModel("Medications").setProperty(source.getBindingContext("Medications").getPath("name"), medicationName);
+                source.getModel("Medications").setProperty(source.getBindingContext("Medications").getPath("pzn"), medicationPZN);
             }
         });
     }

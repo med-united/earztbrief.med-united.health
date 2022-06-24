@@ -56,20 +56,20 @@
 			        </Toolbar>
                 </headerToolbar>
                 <columns>
-                    <Column width="50px"/>
-                    <Column width="11rem">
+                    <Column width="5%"/>
+                    <Column width="30%">
 						<Text text="{i18n>medicationName}" />
 					</Column>
-                    <Column width="11rem">
+                    <Column width="15%">
 						<Text text="{i18n>medicationPZN}" />
 					</Column>
-                    <Column width="11rem">
+                    <Column width="15%">
 						<Text text="{i18n>medicationEffectiveDate}" />
 					</Column>
-                    <Column width="11rem">
+                    <Column width="10%">
 						<Text text="{i18n>medicationDosage}" />
 					</Column>
-					<Column width="11rem">
+					<Column width="25%">
 						<Text text="{i18n>medicationNote}" />
 					</Column>
                 </columns>
@@ -77,8 +77,8 @@
                     <ColumnListItem>
                         <cells>
                             <Button icon="sap-icon://delete" press="deleteRow" type="Reject"/>
-                            <Input value="{Medications>name}" />
-                            <Input value="{Medications>pzn}" />
+                            <Input value="{Medications>name}" showSuggestion="true" suggest=".onSuggestMedicationName" suggestionItemSelected=".onSuggestionMedicationNameSelected" />
+                            <Input value="{Medications>pzn}" showSuggestion="true" suggest=".onSuggestPZN" suggestionItemSelected=".onSuggestionPZNSelected" />
                             <DatePicker value="{Medications>effectiveDate}" />
                             <Input value="{Medications>dosage}" />
                             <Input value="{Medications>note}" />
