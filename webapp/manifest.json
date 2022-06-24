@@ -1,11 +1,11 @@
 {
     "_version": "1.0.0",
     "sap.app": {
-        "id": "health.med-united.earztbrief",
+        "id": "medunited.earztbrief",
         "type": "application",
         "i18n": "i18n/i18n.properties",
-        "title": "{{app.title}}",
-        "description": "{{app.description}}",
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
         "applicationVersion": {
         "version": "1.0.0"
         }
@@ -20,7 +20,7 @@
     },
     "sap.ui5": {
         "rootView": {
-            "viewName": "health.med-united.earztbrief.view.InputForm",
+            "viewName": "medunited.earztbrief.view.InputForm",
             "type": "XML",
             "id": "app"
         },
@@ -35,15 +35,23 @@
             "i18n": {
                 "type": "sap.ui.model.resource.ResourceModel",
                 "settings": {
-                    "bundleName": "health.med-united.earztbrief.i18n.i18n",
+                    "bundleName": "medunited.earztbrief.i18n.i18n",
                     "supportedLocales": ["DE", "EN"],
                     "fallbackLocale": "EN"
                 }
             }
         },
         "resources": {
-            "css": [{
-                "uri": "css/style.css"}]
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ],
+            "js": [
+                {
+                    "uri": "./lib/datamatrix.min.js"
+                }
+            ]
         }
     }
 }

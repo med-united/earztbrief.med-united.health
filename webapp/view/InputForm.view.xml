@@ -1,59 +1,119 @@
-<mvc:View controllerName="health.med-united.earztbrief.controller.InputForm" 
+<mvc:View controllerName="medunited.earztbrief.controller.InputForm" 
           xmlns="sap.m"
           xmlns:core="sap.ui.core" 
           xmlns:mvc="sap.ui.core.mvc" 
           xmlns:cards="sap.f.cards"
           xmlns:l="sap.ui.layout" 
-          xmlns:tnt="sap.tnt" 
+          xmlns:tnt="sap.tnt"
           displayBlock="true">
     <App id="app">
-        <Page title="Send Medication Request" backgroundDesign="Solid" class="sapUiContentPadding">
-            <l:VerticalLayout width="50%">
-                <Label text="{i18n>first.name}" labelFor="firstname" />
-                <Input id="firstname" value="{/recordTarget/patientRole/patient/name/given}"/>
+        <Page title="{i18n>pageTitle}" backgroundDesign="Solid" class="sapUiContentPadding" >
+            <l:VerticalLayout width="50%" >
+                <Label text="{i18n>firstName}" labelFor="firstName" />
+                <Input id="firstName" value="{arztbriefXML>/recordTarget/patientRole/patient/name/given}" />
             </l:VerticalLayout>
             <l:VerticalLayout width="50%">
-                <Label text="{i18n>last.name}" />
-                <Input value="{/recordTarget/patientRole/patient/name/family}"/>
+                <Label text="{i18n>lastName}" />
+                <Input id="lastName" value="{arztbriefXML>/recordTarget/patientRole/patient/name/family}" />
             </l:VerticalLayout>
             <l:VerticalLayout width="50%">
-                <Label text="{i18n>insurance.number}" />
-                <Input value="{/recordTarget/patientRole/id/@extension}"/>
+                <Label text="{i18n>birthDate}" />
+                <DatePicker value="{arztbriefXML>/recordTarget/patientRole/patient/birthTime/@value}" />
             </l:VerticalLayout>
             <l:VerticalLayout width="50%">
-                <Label text="{i18n>birthdate}" />
-                <DatePicker value="{/recordTarget/patientRole/patient/birthTime/@value}"/>
+                <Label text="{i18n>insuranceNumber}" />
+                <Input id="insuranceNumber" value="{arztbriefXML>/recordTarget/patientRole/id/@extension}" />
+            </l:VerticalLayout>
+            <l:VerticalLayout width="50%" >
+                <Label text="{i18n>authorID}" />
+                <Input id="authorID" value="{arztbriefXML>/author/assignedAuthor/id/@extension}" />
             </l:VerticalLayout>
             <l:VerticalLayout width="50%">
-                <Label text="{i18n>sender.email}" />
-                <Input value="{/recordTarget/patientRole/telecom/@value}" />
+                <Label text="{i18n>organisationID}" />
+                <Input id="organizationID"  value="{arztbriefXML>/custodian/assignedCustodian/representedCustodianOrganization/id/@extension}" />
             </l:VerticalLayout>
             <l:VerticalLayout width="50%">
-                <Label text="{i18n>receiver.email}" />
-                <Input value="{/recordTarget/patientRole/providerOrganization/telecom/@value}" />
+                <Label text="{i18n>practitioner}" />
+                <Input id="practitioner"  value="{otherRequesterFieldsJSON>/practitionerFullName}" class="sapUiSmallMarginBottom" />
             </l:VerticalLayout>
-            <l:VerticalLayout width="30%">
-                <Label text="{i18n>time.of.doc.creation}" />
-                <DateTimePicker value="{/author/time/@value}" />
+            <l:VerticalLayout width="50%">
+                <Label text="{i18n>pharmacy}" />
+                <Input id="pharmacy"  value="{otherRequesterFieldsJSON>/pharmacy}" class="sapUiSmallMarginBottom" />
             </l:VerticalLayout>
-            <l:VerticalLayout width="30%">
-                <Label text="{i18n>author.id}" />
-                <Input value="{/author/assignedAuthor/id/@extension}" />
+
+            <Toolbar width="100%" height="2px" />
+
+            <!-- Medication -->
+            <l:VerticalLayout width="100%" class="sapUiSmallMarginTop"  >
+                 <Label text="{i18n>medication}" class="mediumFont" />
             </l:VerticalLayout>
-            <l:VerticalLayout width="30%">
-                <Label text="{i18n>organisation.id}" />
-                <Input value="{/custodian/assignedCustodian/representedCustodianOrganization/id/@extension}" />
+            <Table
+                id="medicationTable"
+                items="{Medications>/Medications}" >
+                <headerToolbar>
+			        <Toolbar>
+				        <Button icon="sap-icon://add" text="{i18n>addMedicationButton}" press="addRow"/>
+			        </Toolbar>
+                </headerToolbar>
+                <columns>
+                    <Column width="5%"/>
+                    <Column width="30%">
+						<Text text="{i18n>medicationName}" />
+					</Column>
+                    <Column width="15%">
+						<Text text="{i18n>medicationPZN}" />
+					</Column>
+                    <Column width="15%">
+						<Text text="{i18n>medicationEffectiveDate}" />
+					</Column>
+                    <Column width="10%">
+						<Text text="{i18n>medicationDosage}" />
+					</Column>
+					<Column width="25%">
+						<Text text="{i18n>medicationNote}" />
+					</Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Button icon="sap-icon://delete" press="deleteRow" type="Reject"/>
+                            <Input value="{Medications>name}" showSuggestion="true" suggest=".onSuggestMedicationName" suggestionItemSelected=".onSuggestionMedicationNameSelected" />
+                            <Input value="{Medications>pzn}" showSuggestion="true" suggest=".onSuggestPZN" suggestionItemSelected=".onSuggestionPZNSelected" />
+                            <DatePicker value="{Medications>effectiveDate}" />
+                            <Input value="{Medications>dosage}" />
+                            <Input value="{Medications>note}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+
+            <!-- E-mail -->
+            <l:VerticalLayout width="100%" class="sapUiSmallMarginTop" >
+                 <Label text="{i18n>email}" class="mediumFont" />
+            </l:VerticalLayout>
+            <l:VerticalLayout width="40%" class="sapUiSmallMarginTop" >
+                <Label text="{i18n>senderEmail}" />
+                <Input id="senderEmail" value="{arztbriefXML>/recordTarget/patientRole/telecom/@value}" class="sapUiSmallMarginBottom" />
+            </l:VerticalLayout>
+            <l:VerticalLayout width="40%" class="sapUiSmallMarginTop" >
+                <Label text="{i18n>receiverEmail}" />
+                <Input id="receiverEmail" value="{arztbriefXML>/recordTarget/patientRole/providerOrganization/telecom/@value}" class="sapUiSmallMarginBottom" />
+            </l:VerticalLayout>
+            <l:VerticalLayout width="20%" >
+                <Label text="{i18n>timeOfDocCreation}" class="sapUiSmallMarginTop" />
+                <DateTimePicker value="{arztbriefXML>/author/time/@value}" class="sapUiSmallMarginBottom" />
             </l:VerticalLayout>
             <l:VerticalLayout width="100%">
                 <Label text="{i18n>message}" />
-                <TextArea value="{/component/structuredBody/component/section}" rows="8" width="100%"/>
+                <TextArea value="{arztbriefXML>/component/structuredBody/component/section}" rows="6" width="100%" />
             </l:VerticalLayout>
+
             <footer>
                 <Toolbar>
                     <ToolbarSpacer />
 
                     <ToolbarSpacer />
-                    <Button type="Accept" text="Send" press=".onClick" />
+                    <Button type="Accept" text="{i18n>sendButton}" press=".onClick" />
                 </Toolbar>
             </footer>
         </Page>

@@ -4,7 +4,7 @@ sap.ui.define(
     ],
     function (UIComponent, JSONModel) {
         "use strict";
-        return UIComponent.extend("health.med-united.earztbrief.Component", {
+        return UIComponent.extend("medunited.earztbrief.Component", {
 
             metadata : {
                 interfaces: ["sap.ui.core.IAsyncContentCreation"],
