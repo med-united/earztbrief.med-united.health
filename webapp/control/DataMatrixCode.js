@@ -7,7 +7,7 @@ sap.ui.define(
     function (Control) {
         'use strict';
 
-        return Control.extend('health.med-united.earztbrief', {
+        return Control.extend('medunited.earztbrief.control', {
             metadata: {
                 properties: {
                     // msg - Data Matrix message, obviously, this is mandatory parameter.
