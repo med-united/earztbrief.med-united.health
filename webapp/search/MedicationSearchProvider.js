@@ -1,4 +1,4 @@
-// Provides control medunited.care.search.MedicationSearchProvider.
+// Provides control health.med-united.care.search.MedicationSearchProvider.
 sap.ui.define([
 	'sap/ui/core/search/SearchProvider',
 	"sap/base/Log",
@@ -23,10 +23,10 @@ sap.ui.define([
 	 * @version ${version}
 	 *
 	 * @public
-	 * @alias medunited.earztbrief.search.MedicationSearchProvider
+	 * @alias health.med-united.earztbrief.search.MedicationSearchProvider
 	 * @ui5-metamodel This control/element also will be described in the UI5 (legacy) designtime metamodel
 	 */
-	var MedicationSearchProvider = SearchProvider.extend("medunited.earztbrief.search.MedicationSearchProvider", /** @lends sap.ui.core.search.MedicationSearchProvider.prototype */ { metadata : {
+	var MedicationSearchProvider = SearchProvider.extend("health.med-united.earztbrief.search.MedicationSearchProvider", /** @lends sap.ui.core.search.MedicationSearchProvider.prototype */ { metadata : {
 
 		library : "sap.ui.core",
 		properties : {

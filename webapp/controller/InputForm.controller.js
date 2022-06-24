@@ -11,7 +11,7 @@ sap.ui.define(
     function (Controller, XMLModel, JSONModel, MedicationRequester, Medication, DataMatrixCode, MedicationSearchProvider, Item) {
         "use strict";
 
-        return Controller.extend("medunited.earztbrief.controller.InputForm", {
+        return Controller.extend("health.med-united.earztbrief.controller.InputForm", {
 
             onInit: function () {
                 this.getView().setModel(new XMLModel("./template/Arztbrief-Minimal.XML"), "arztbriefXML");

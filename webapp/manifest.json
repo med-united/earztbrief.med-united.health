@@ -1,7 +1,7 @@
 {
     "_version": "1.0.0",
     "sap.app": {
-        "id": "medunited.earztbrief",
+        "id": "health.med-united.earztbrief",
         "type": "application",
         "i18n": "i18n/i18n.properties",
         "title": "{{appTitle}}",
@@ -20,7 +20,7 @@
     },
     "sap.ui5": {
         "rootView": {
-            "viewName": "medunited.earztbrief.view.InputForm",
+            "viewName": "health.med-united.earztbrief.view.InputForm",
             "type": "XML",
             "id": "app"
         },
@@ -35,7 +35,7 @@
             "i18n": {
                 "type": "sap.ui.model.resource.ResourceModel",
                 "settings": {
-                    "bundleName": "medunited.earztbrief.i18n.i18n",
+                    "bundleName": "health.med-united.earztbrief.i18n.i18n",
                     "supportedLocales": ["DE", "EN"],
                     "fallbackLocale": "EN"
                 }

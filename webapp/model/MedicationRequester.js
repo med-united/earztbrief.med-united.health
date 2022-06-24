@@ -4,7 +4,7 @@ sap.ui.define([
 ], function(Object, JSONModel) {
     "use strict";
     
-    return Object.extend("medunited.earztbrief.model.MedicationRequester", {
+    return Object.extend("health.med-united.earztbrief.model.MedicationRequester", {
         constructor: function (data) {
             if (data) {
                 this.firstName = data.firstName;
