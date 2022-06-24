@@ -4,8 +4,8 @@
         "id": "health.med-united.earztbrief",
         "type": "application",
         "i18n": "i18n/i18n.properties",
-        "title": "{{app.title}}",
-        "description": "{{app.description}}",
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
         "applicationVersion": {
         "version": "1.0.0"
         }
@@ -42,8 +42,16 @@
             }
         },
         "resources": {
-            "css": [{
-                "uri": "css/style.css"}]
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ],
+            "js": [
+                {
+                    "uri": "./lib/datamatrix.min.js"
+                }
+            ]
         }
     }
 }
