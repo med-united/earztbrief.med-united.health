@@ -141,7 +141,7 @@ sap.ui.define(
             getMedicationPlanXML: function (oMedicationRequester) {
                 let sXML = "<MP v=\"025\" U=\"" + [...Array(32)].map(() => 'ABCDEF0123456789'.charAt(Math.floor(Math.random() * 16))).join('') + "\" l=\"de-DE\">\n";
                 sXML += "  <P g=\"" + oMedicationRequester.getFirstName() + "\" f=\"" + oMedicationRequester.getLastName() + "\" b=\"" + (oMedicationRequester.getBirthDate() ? oMedicationRequester.getBirthDate().replaceAll("-", "") : "") + "\" />\n";
-                sXML += "  <A n=\"" + oMedicationRequester.getPractitionerFullName() + "\" s=\"" + "\" z=\"" + "\" c=\"" + "\" p=\"" + "\" e=\"" + oMedicationRequester.getPractitionerEmail() + "\" t=\"" + new Date().toISOString().substring(0, 19) + "\" />\n";
+                sXML += "  <A n=\"" + oMedicationRequester.getPractitionerFullName() + "\" e=\"" + oMedicationRequester.getPractitionerEmail() + "\" t=\"" + new Date().toISOString().substring(0, 19) + "\" />\n";
                 sXML += "  <S>\n";
                 for (let oMedication of oMedicationRequester.getMedications()) {
                     try {
@@ -155,7 +155,9 @@ sap.ui.define(
                                 3: "h"
                             };
                             for (let i = 0; i < aDosage.length; i++) {
-                                sXML += mDosage[i] + "=\"" + aDosage[i] + "\" ";
+                                if (aDosage[i] !== "0") {
+                                    sXML += mDosage[i] + "=\"" + aDosage[i] + "\" ";
+                                }
                             }
                         }
                         const sNote = oMedication.getNote();

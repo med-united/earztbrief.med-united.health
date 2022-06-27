@@ -18,7 +18,7 @@
             </l:VerticalLayout>
             <l:VerticalLayout width="50%">
                 <Label text="{i18n>birthDate}" />
-                <DatePicker value="{arztbriefXML>/recordTarget/patientRole/patient/birthTime/@value}" />
+                <DatePicker valueFormat="YYYY-MM-dd" value="{arztbriefXML>/recordTarget/patientRole/patient/birthTime/@value}" />
             </l:VerticalLayout>
             <l:VerticalLayout width="50%">
                 <Label text="{i18n>insuranceNumber}" />
