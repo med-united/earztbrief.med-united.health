@@ -88,6 +88,7 @@
             </Table>
 
             <!-- E-mail -->
+            <!--
             <l:VerticalLayout width="100%" class="sapUiSmallMarginTop" >
                  <Label text="{i18n>email}" class="mediumFont" />
             </l:VerticalLayout>
@@ -107,6 +108,13 @@
                 <Label text="{i18n>message}" />
                 <TextArea value="{arztbriefXML>/component/structuredBody/component/section}" rows="6" width="100%" />
             </l:VerticalLayout>
+            -->
+
+            <l:VerticalLayout width="100%" class="sapUiSmallMarginTop" >
+                <Label text=" " class="mediumFont" />
+                <Label text="{i18n>noEmail}" class="smallFont" />
+            </l:VerticalLayout>
+
 
             <footer>
                 <Toolbar>

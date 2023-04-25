@@ -4,6 +4,7 @@ package-lock.json
 # generated Folders
 /test-results/
 /bin/
+.idea
 .settings/
 node_modules/
 gen/
